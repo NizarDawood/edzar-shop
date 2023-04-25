@@ -1,0 +1,98 @@
+body {
+    background-color: rgb(249,249,249);
+    font-family: 'Source Sans Pro', sans-serif;
+    justify-content: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    
+}
+
+
+//header
+
+.logo img{
+    height: 100px;
+    width: 100px;
+}
+.page-header {
+    position: relative;
+    border-bottom: 2px solid #000000;
+
+}
+
+@media (min-width: 45em) {
+    .page-header--content {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        border-bottom: 2px solid #000000;
+
+    }
+}
+
+@media (max-width: 719px) {
+    .page-header--content>* {
+        margin-bottom: 12px;
+    }
+}
+
+// Nav 
+.nav-list {
+    margin: 0;
+    padding: 0;
+}
+
+.nav-list a {
+    font-size: 18px;
+}
+
+.primary-nav ul>* {
+    margin: 0 0.5em;
+    padding: 0.5em;
+}
+
+.primary-nav ul {
+    display: flex;
+    list-style: none;
+    font-size: var(--fs-300);
+}
+
+img{
+    width: 300px;
+    height: 300px;
+}
+//main
+body section {
+    padding: min(10vh, 10em) 0;
+    display: flex;
+    flex-direction: column;
+}
+
+body section.section-bg {
+    background: var(--clr-white);
+}
+
+.container {
+    
+}
+
+.container--full {
+    background: var(--clr-white);
+    margin-right: auto;
+    margin-left: auto;
+    padding: 16px;
+}
+
+.container--bg section {
+    padding: min(10vh, 1.5em) 0;
+}
+
+.container--bg blog-page feature-box{}
+// blog
+.wrapper {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 20px 30px;
+
+}
+  

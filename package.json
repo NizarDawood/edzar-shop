@@ -1,0 +1,26 @@
+{
+  "name": "edzar-shop",
+  "version": "1.0.0",
+  "description": "shop med ett forum och en egen E-Coin som du kan handla för på shoppen",
+  "main": "index.js",
+  "scripts": {
+    "build-production": "eleventy",
+    "watch:sass": "sass  --no-source-map --watch src/sass:dist/css",
+    "watch:eleventy": "eleventy --serve",
+    "build:sass": "sass  --no-source-map src/sass:dist/css",
+    "build:eleventy": "eleventy",
+    "start": "npm-run-all build:sass --parallel watch:*",
+    "build": "npm-run-all build:sass build:eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NizarDawood/edzar-shop.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NizarDawood/edzar-shop/issues"
+  },
+  "homepage": "https://github.com/NizarDawood/edzar-shop#readme",
+  "keywords": []
+}
