@@ -4,13 +4,10 @@
   "description": "shop med ett forum och en egen E-Coin som du kan handla för på shoppen",
   "main": "index.js",
   "scripts": {
-    "build-production": "eleventy",
-    "watch:sass": "sass  --no-source-map --watch src/sass:dist/css",
-    "watch:eleventy": "eleventy --serve",
-    "build:sass": "sass  --no-source-map src/sass:dist/css",
-    "build:eleventy": "eleventy",
-    "start": "npm-run-all build:sass --parallel watch:*",
-    "build": "npm-run-all build:sass build:eleventy"
+   "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "nodemon -e js,html,njk .server.js",
+        "start": "npm-run-all build:sass --parallel watch:*",
+        "scss": "sass --watch scss:public/css"
   },
   "repository": {
     "type": "git",
@@ -22,5 +19,18 @@
     "url": "https://github.com/NizarDawood/edzar-shop/issues"
   },
   "homepage": "https://github.com/NizarDawood/edzar-shop#readme",
-  "keywords": []
+  "keywords": [],
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "morgan": "^1.10.0",
+    "mysql2": "^3.2.4",
+    "nunjucks": "^3.2.4"
+  }
 }
