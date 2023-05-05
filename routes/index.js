@@ -14,11 +14,11 @@ router.get('/login', async function (req, res, next) {
     res.render('login.njk', { title: 'Log' });
 });
 
-router.get('/forum', async function (req, res, next) {
+router.get('/shop', async function (req, res, next) {
 
     if (req.session.login == 1) {
-        const [rows] = await promisePool.query("SELECT * FROM nd20forum");
-        res.render('forum.njk', { title: 'PostIt', name: req.session.username, rows: rows });
+        const [rows] = await promisePool.query("SELECT * FROM edzarshop");
+        res.render('shop.njk', { title: 'PostIt', name: req.session.username, rows: rows });
     }
     else {
         return res.status(401).send('Access denied');
@@ -27,7 +27,7 @@ router.get('/forum', async function (req, res, next) {
 
 
 
-router.post('/forum', async function (req, res, next) {
+router.post('/shop', async function (req, res, next) {
     req.body = { logout };
 
 
@@ -39,7 +39,7 @@ router.get('/logout', async function (req, res, next) {
     req.session.login = 0;
 });
 
-router.post('/forum', async function (req, res, next) {
+router.post('/shop', async function (req, res, next) {
     req.body = { profile };
 
 
@@ -64,7 +64,7 @@ router.post('/login', async function (req, res, next) {
         return res.send('Password is Required')
     }
 
-    const [user] = await promisePool.query('SELECT * FROM nzduserforum WHERE name = ?', [username]);
+    const [user] = await promisePool.query('SELECT * FROM edzarusers WHERE name = ?', [username]);
 
 
     bcrypt.compare(password, user[0].password, function (err, result) {
@@ -72,7 +72,7 @@ router.post('/login', async function (req, res, next) {
         if (result === true) {
             req.session.username = username;
             req.session.login = 1;
-            return res.redirect('/forum');
+            return res.redirect('/shop');
         }
 
         else {
@@ -120,21 +120,21 @@ router.post('/register', async function (req, res, next) {
         return res.send('Passwords do not match')
     }
 
-    const [user] = await promisePool.query('SELECT name FROM nzduserforum WHERE name = ?', [username]);
+    const [user] = await promisePool.query('SELECT name FROM edzarusers WHERE name = ?', [username]);
     console.log({ user })
 
     if (user.length > 0) {
         return res.send('Username is already taken')
     } else {
         bcrypt.hash(password, 10, async function (err, hash) {
-            const [creatUser] = await promisePool.query('INSERT INTO nzduserforum (name, password) VALUES (?, ?)', [username, hash]);
+            const [creatUser] = await promisePool.query('INSERT INTO edzarusers (name, password) VALUES (?, ?)', [username, hash]);
             res.redirect('/login')
         })
     }
 });
 
 router.get('/', async function (req, res, next) {
-    const [rows] = await promisePool.query("SELECT * FROM nd20forum");
+    const [rows] = await promisePool.query("SELECT * FROM edzarshop");
     res.render('index.njk', {
         rows: rows,
         title: 'PostIt'
@@ -163,13 +163,13 @@ router.post('/delete', async function (req, res, next) {
         return res.send('Password is required');
     }
 
-    const [user] = await promisePool.query('SELECT * FROM nzduserforum WHERE name = ?', [username]);
+    const [user] = await promisePool.query('SELECT * FROM edzarusers WHERE name = ?', [username]);
     if (!user.length) {
         return res.send('User not found');
     }
     bcrypt.compare(password, user[0].password, function (err, result) {
         if (result === true) {
-            promisePool.query('DELETE FROM nzduserforum WHERE name = ?', [username])
+            promisePool.query('DELETE FROM edzarusers WHERE name = ?', [username])
                 .then(() => {
                     req.session.destroy();
                     res.redirect('/');
@@ -224,8 +224,8 @@ router.post('/new', async function (req, res, next) {
     }
     if (error.length === 0) {
         try {
-            const [rows] = await promisePool.query("INSERT INTO nd20forum (author, title, content) VALUES ( ?, ?, ?)", [author, title, content]);
-            res.redirect('/forum');
+            const [rows] = await promisePool.query("INSERT INTO edzarshop (author, title, content) VALUES ( ?, ?, ?)", [author, title, content]);
+            res.redirect('/shop');
         } catch (error) {
             console.error(error);
         }
