@@ -1,27 +1,23 @@
 {
   "name": "edzar-shop",
   "version": "1.0.0",
-  "description": "shop med ett forum och en egen E-Coin som du kan handla för på shoppen",
-  "main": "index.js",
+  "description": "## History",
+  "main": "server.js",
   "scripts": {
-   "test": "echo \"Error: no test specified\" && exit 1",
-        "dev": "nodemon -e js,html,njk .server.js",
-        "start": "npm-run-all build:sass --parallel watch:*",
-        "scss": "sass --watch scss:public/css"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon -e js,html,njk .server.js",
+    "start": "npm-run-all build:sass --parallel watch:*",
+    "scss": "sass --watch scss:public/css"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/NizarDawood/edzar-shop.git"
+  "engines": {
+    "node": ">=16"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/NizarDawood/edzar-shop/issues"
-  },
-  "homepage": "https://github.com/NizarDawood/edzar-shop#readme",
-  "keywords": [],
   "devDependencies": {
-    "nodemon": "^2.0.22"
+    "nodemon": "^2.0.21",
+    "npm-run-all": "^4.1.5"
   },
   "dependencies": {
     "bcrypt": "^5.1.0",
@@ -30,7 +26,17 @@
     "express": "^4.18.2",
     "express-session": "^1.17.3",
     "morgan": "^1.10.0",
-    "mysql2": "^3.2.4",
-    "nunjucks": "^3.2.4"
-  }
+    "mysql2": "^3.2.0",
+    "nunjucks": "^3.2.3",
+    "sass": "^1.60.0",
+    "validator": "^13.9.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NizarDawood/edzar-shop.git"
+  },
+  "bugs": {
+    "url": "https://github.com/NizarDawood/edzar-shop/issues"
+  },
+  "homepage": "https://github.com/NizarDawood/edzar-shop#readme"
 }

@@ -1,17 +1,18 @@
 const express = require('express');
+const router = express.Router();
 const { response } = require('express');
 const bcrypt = require('bcrypt');
-const router = express.Router();
 const pool = require('../utils/database.js');
-const promisePool = pool.promise();
 const session = require('express-session');
+const promisePool = pool.promise();
+
+
 
 
 router.get('/login', async function (req, res, next) {
 
     res.render('login.njk', { title: 'Log' });
 });
-
 
 router.get('/forum', async function (req, res, next) {
 
@@ -234,5 +235,8 @@ router.post('/new', async function (req, res, next) {
 
 
 });
+
+
+
 
 module.exports = router;
