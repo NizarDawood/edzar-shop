@@ -5,7 +5,7 @@
  */
 
 const app = require('./app');
-const debug = require('debug')('wsp1-user-forum:server');
+const debug = require('debug')('edzar-shop:server');
 const http = require('http');
 
 /**
