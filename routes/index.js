@@ -3,23 +3,28 @@ const router = express.Router();
 const { response } = require('express');
 const bcrypt = require('bcrypt');
 const pool = require('../utils/database.js');
-const session = require('express-session');
 const promisePool = pool.promise();
 
 
+router.get('/', async function (req, res, next) {
+    //const [rows] = await promisePool.query("SELECT * FROM edzarshop");
+    res.render('index.njk', {
+        //rows: rows,
+        title: 'PostIt'
+    });
+});
 
-
+/*
 router.get('/login', async function (req, res, next) {
-
     res.render('login.njk', { title: 'Log' });
 });
 
 router.get('/shop', async function (req, res, next) {
 
     const [rows] = await promisePool.query("SELECT * FROM edzarshop");
-        res.render('shop.njk', { title: 'PostIt', name: req.session.username, rows: rows });
-    
-    
+    res.render('shop.njk', { title: 'PostIt', name: req.session.username, rows: rows });
+
+
 });
 
 
@@ -130,13 +135,6 @@ router.post('/register', async function (req, res, next) {
     }
 });
 
-router.get('/', async function (req, res, next) {
-    const [rows] = await promisePool.query("SELECT * FROM edzarshop");
-    res.render('index.njk', {
-        rows: rows,
-        title: 'PostIt'
-    });
-});
 
 
 
@@ -234,6 +232,6 @@ router.post('/new', async function (req, res, next) {
 });
 
 
-
+*/
 
 module.exports = router;
