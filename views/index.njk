@@ -1,16 +1,24 @@
 {% extends "layout.njk" %}
 {% block content %}
 <main>
-    <div>
     <nav class="primary-nav">
+        <h1>{{ title }}</h1>
         <ul role="list" class="nav-list flex-group">
-
-            <h1>{{ title }}</h1>
-            <button type="submit"><a href="/login">Login</a></button>
-            <button type="submit"><a href="/register">Register</a></button>
+          <li><a href="/shop">Shop</a></li>
+          <li><a href="/new">Contact</a></li>
+          <li><a href="#">Profile</a></li>
         </ul>
-        </nav>
-    </div>
+        <button type="submit" class="hamburger-menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+        <ul class="hamburger-menu-items">
+          <li><a href="/login">Login</a></li>
+          <li><a href="/register">Register</a></li>
+        </ul>
+      </nav>
+      
 
 
     {% for row in rows %}

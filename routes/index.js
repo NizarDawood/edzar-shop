@@ -16,13 +16,10 @@ router.get('/login', async function (req, res, next) {
 
 router.get('/shop', async function (req, res, next) {
 
-    if (req.session.login == 1) {
-        const [rows] = await promisePool.query("SELECT * FROM edzarshop");
+    const [rows] = await promisePool.query("SELECT * FROM edzarshop");
         res.render('shop.njk', { title: 'PostIt', name: req.session.username, rows: rows });
-    }
-    else {
-        return res.status(401).send('Access denied');
-    }
+    
+    
 });
 
 
