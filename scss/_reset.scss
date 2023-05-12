@@ -1,4 +1,14 @@
+@forward "../node_modules/modern-css-reset/src/reset.css";
 
+/*
+Credit to Lucas Liedgren's Modern CSS Reset
+@link https://piccalil.li/blog/a-modern-css-reset/
+🟣 = additions by Stephanie Eckles 
+Twitter/Github/Codepen: @5t3ph
+*/
+
+/* Box sizing rules */
+*,
 *::before,
 *::after {
     box-sizing: border-box;

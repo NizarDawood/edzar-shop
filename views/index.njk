@@ -1,23 +1,19 @@
 {% extends "layout.njk" %}
 {% block content %}
 <main>
-    <nav class="primary-nav">
-        <h1>{{ title }}</h1>
-        <ul role="list" class="nav-list flex-group">
-          <li><a href="/shop">Shop</a></li>
-          <li><a href="/new">Contact</a></li>
-          <li><a href="#">Profile</a></li>
-        </ul>
-        <button type="submit" class="hamburger-menu">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </button>
-        <ul class="hamburger-menu-items">
+
+  <nav class="navbar">
+    <ul class="nav-list">
+      <li class="nav-item"><a href="/shop">Shop</a></li>
+      <li class="nav-item profile">
+        <a href="/profile">Profile</a>
+        <ul class="profile-dropdown">
           <li><a href="/login">Login</a></li>
           <li><a href="/register">Register</a></li>
         </ul>
-      </nav>
+      </li>
+    </ul>
+  </nav>
       
 
 
