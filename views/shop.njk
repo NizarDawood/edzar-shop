@@ -1,16 +1,31 @@
 {% extends "layout.njk" %}
 {% block content %}
-<main class="container mt-3">
-    <h1>{{ title }}</h1>
-</div>
-<nav class="primary-nav">
-    <ul role="list" class="nav-list flex-group">
-        
-    </ul>
-</nav>
-</div>
+<main >
     
-    
+
+    <nav class="navbar">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="/shop">Shop</a></li>
+          <li class="nav-item profile">
+            <a href="/profile">Profile</a>
+            <ul class="profile-dropdown">
+              <li><a href="/login">Login</a></li>
+              <li><a href="/register">Register</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <div class="wrapper">
+        <div>One</div>
+        <div>Two</div>
+        <div>Three</div>
+        <div>Four</div>
+        <div>Five</div>
+        <div>One</div>
+        <div>Two</div>
+        <div>Three</div>
+        <div>Four</div>
+      </div>
 
 {% for row in rows %}
     <section>

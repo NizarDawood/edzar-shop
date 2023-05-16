@@ -1,5 +1,7 @@
 body {
   background-color: #DDDDDD;
+  height: 100%;
+  position: relative;
 }
 
 .navbar {
@@ -49,27 +51,34 @@ body {
   text-decoration: none;
 }
 
-.login-body {
+.login {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    background-color: #ffffff;
+    margin-block: 20%;
+    margin-inline: 20%;
 }
+.login-boxlink {
+  display: grid;
+  grid-template-columns: 200px 200px;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+    justify-content: center;
 
+}
 .login-box {
-  background-color: #FFFFFF;
-  stroke: #fb0000;
-width: 80%;
-}
-
-.login-box2 {
-  stroke: #fb0000;
-
-}
-
-.login-box3 {
   display: grid;
 stroke: #fb0000;
+justify-items: center;
 }
 .cz-shortcut-listen{
   display: flex;
     justify-content: center;
+}
+.wrapper {
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 200px;
 }

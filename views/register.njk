@@ -1,12 +1,31 @@
 {% extends "layout.njk" %}
-{% block  content %}
-<main class="container mt-3">
-    <h1>{{ title }}</h1>
-    <form action="/register" method="POST">
-    <input type="text" name="username">
-    <input type="password" name="password">
-    <input type="password" name="passwordConfirmation">
-    <button type="submit">Register</button>
-    </form>
+{% block content %}
+<main >
+
+    
+    <a href="/">Edzar</a>
+    <div class="login">
+        <div class="login-boxlink">
+            <div> <a href="/register">register</a>
+            </div>
+            <div> <a href="/login">Login</a></div>
+
+
+        </div>
+        <div class="login-box">
+            <form action="/register" method="POST">
+                <h3>Username</h3>
+                <input type="text" name="username">
+                <h3>password</h3>
+                <input type="password" name="password">
+                <h3>password</h3>
+                <input type="password" name="passwordConfirmation">
+                <h1></h1>
+                <button type="submit">Register</button>
+            </form>
+        </div>
+
+
+
 </main>
 {% endblock %}

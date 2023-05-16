@@ -1,19 +1,25 @@
 {% extends "layout.njk" %}
-{% block  content %}
-<main class="login-box">
-    <div class="login-box1">¨
-<h1>loggin</h1>
+{% block content %}
+<main>
+    <a href="/">Edzar</a>
+
+    <div class="login">
+        <div class="login-boxlink">
+            <div> <a href="/register">register</a>
+            </div>
+            <div> <a href="/login">Login</a></div>
+
+
+        </div>
+        <div class="login-box">
+            <form action="/login" method="POST">
+                <h3>Username</h3>
+                <input type="text" name="username">
+                <h3>password</h3>
+                <input type="password" name="password">
+                <button type="submit">Login</button>
+            </form>
+        </div>
     </div>
-    <div class="login-box2">¨
-      <h1>register</h1>  
-    </div>
-    <div class="login-box3">¨
-        <form action="/login" method="POST">
-    <input type="text" name="username">
-    <input type="password" name="password">
-    <button type="submit">Login</button>
-    </form> 
-    </div>
-   
 </main>
 {% endblock %}
