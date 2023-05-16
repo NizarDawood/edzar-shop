@@ -7,14 +7,14 @@ const promisePool = pool.promise();
 
 
 router.get('/', async function (req, res, next) {
-    //const [rows] = await promisePool.query("SELECT * FROM edzarshop");
+    const [rows] = await promisePool.query("SELECT * FROM edzarshop");
     res.render('index.njk', {
-        //rows: rows,
+        rows: rows,
         title: 'PostIt'
     });
 });
 
-/*
+
 router.get('/login', async function (req, res, next) {
     res.render('login.njk', { title: 'Log' });
 });
@@ -232,6 +232,6 @@ router.post('/new', async function (req, res, next) {
 });
 
 
-*/
+
 
 module.exports = router;

@@ -1,50 +1,75 @@
-body{
-    background-color:#EEEEEE;
+body {
+  background-color: #DDDDDD;
 }
 
 .navbar {
-    background-color: #000000;
-    padding: 10px;
-    font-style: ;
-  }
-  
-  .nav-list {
-    list-style-type: none;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-  }
-  
-  .nav-item {
-    margin-right: 10px;
-  }
-  
-  .nav-item a {
-    text-decoration: none;
-    color: #333;
-    padding: 5px; 
-       color: #ffffff;
+  background-color: #000000;
 
-  }
-  
-  .profile-dropdown {
-    display: none;
-    position: absolute;
-    background-color: #fff;
-    padding: 10px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  }
-  
-  .profile:hover .profile-dropdown {
-    display: block;
-  }
-  
-  .profile-dropdown li {
-    margin-bottom: 5px;
-  }
-  
-  .profile-dropdown li a {
-    color: #333;
-    text-decoration: none;
-  }
-  
+  padding: 10px;
+  font-style: ;
+}
+
+.nav-list {
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.nav-item {
+  margin-right: 10px;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: #333;
+  padding: 5px;
+  color: #ffffff;
+
+}
+
+.profile-dropdown {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  padding: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.profile:hover .profile-dropdown {
+  display: block;
+}
+
+.profile-dropdown li {
+  margin-bottom: 5px;
+}
+
+.profile-dropdown li a {
+  color: #333;
+  text-decoration: none;
+}
+
+.login-body {
+    display: flex;
+    justify-content: center;
+}
+
+.login-box {
+  background-color: #FFFFFF;
+  stroke: #fb0000;
+width: 80%;
+}
+
+.login-box2 {
+  stroke: #fb0000;
+
+}
+
+.login-box3 {
+  display: grid;
+stroke: #fb0000;
+}
+.cz-shortcut-listen{
+  display: flex;
+    justify-content: center;
+}
