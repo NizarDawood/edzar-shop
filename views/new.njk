@@ -2,12 +2,18 @@
 {% block  content %}
 <main class="container mt-3">
     <h1>{{ title }}</h1>
-    <form action="/new" method="post">
-        <label for="author">Fullständiga namn</label>
-        <input type="text" name="author" id="author">
-        <label for="content">Innehåll</label>
-        <textarea name="content" id="content" cols="30" rows="10"></textarea>
-        <button type="submit">Skicka</button>
+    <li class="nav-item"><a href="/">home</a></li>
+
+    <form action="/new" method="post"> 
+        <label for="link">bild</label>
+        <input type="text" name="link" id="link">
+        <label for="title">Titel</label>
+        <input type="text" name="title" id="title">
+        <label for="price">pris</label>
+        <input type="text" name="price" id="price">
+       <button type="submit">Skicka</button>
+
+       
     </form>
 </main>
 {% endblock %}

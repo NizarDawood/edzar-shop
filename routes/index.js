@@ -188,49 +188,12 @@ router.get('/new', async function (req, res, next) {
 
 
 router.post('/new', async function (req, res, next) {
-    const { author, title, content } = req.body;
+    const { price, title, link } = req.body;
     const error = [];
-
-    if (!title) {
-        error.push('Title is required');
-    }
-    if (!content) {
-        error.push('Body is required');
-    }
-    if (title && title.length <= 3) {
-        error.push('Title must be at least 3 characters');
-    }
-    if (content && content.length <= 10) {
-        error.push('Body must be at least 10 characters');
-    }
-    if (res.length === 0) {
-        const sanitize = (str) => {
-            let temp = str.trim();
-            temp = validator.stripLow(temp);
-            temp = validator.escape(temp);
-            return temp;
-        };
-    }
-    if (!title) {
-        sanitizedTitle = sanitize(title)
-    }
-    if (!content) {
-        sanitizedcontent = sanitize(content)
-    }
-    if (error.length === 0) {
-        try {
-            const [rows] = await promisePool.query("INSERT INTO edzarshop (author, title, content) VALUES ( ?, ?, ?)", [author, title, content]);
-            res.redirect('/shop');
-        } catch (error) {
-            console.error(error);
-        }
-    } else {
-        res.send(error);
-    }
-
-
+            const [rows] = await promisePool.query("INSERT INTO edzarshop (price, title, link) VALUES ( ?, ?, ?)", [price, title, link]);
+            res.redirect('/forum');
+        
 });
-
 
 
 

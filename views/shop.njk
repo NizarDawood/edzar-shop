@@ -1,41 +1,101 @@
 {% extends "layout.njk" %}
 {% block content %}
-<main >
-    
+<main class="shopmain">
 
-    <nav class="navbar">
-        <ul class="nav-list">
-          <li class="nav-item"><a href="/shop">Shop</a></li>
-          <li class="nav-item profile">
-            <a href="/profile">Profile</a>
-            <ul class="profile-dropdown">
-              <li><a href="/login">Login</a></li>
-              <li><a href="/register">Register</a></li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-      <div class="wrapper">
-        <div>One</div>
-        <div>Two</div>
-        <div>Three</div>
-        <div>Four</div>
-        <div>Five</div>
-        <div>One</div>
-        <div>Two</div>
-        <div>Three</div>
-        <div>Four</div>
-      </div>
 
-{% for row in rows %}
-    <section>
-        {{ row.id }} {{ row.authorId }} {{ row.author }}
-        <h1>{{ row.title }}</h1>
-        <p>{{ row.content }}</p>
-        <p>Created {{ row.createdAt }}</p>
-        <p>{{ row.name }}</p>
-    </section>
-    {% endfor %}
-    
+
+  <section class="produkt">
+
+    <div class="p1">
+      <img src="/img/image_6483441(1).JPG" alt="Girl in a jacket">
+      <h2>blomsaj</h2>
+      <h3> 100.kr </h3>
+      <p class="beskrivning">$19.99</p>
+      <p class="pris">$19.99</p>
+      <button class="addtocart">Add to Cart</button>
+    </div>
+    <div class="p1">
+      <img src="/img/image_6483441(2).JPG" alt="Girl in a jacket">
+      <h2>blomsaj</h2>
+      <h3> 100.kr </h3>
+      <p class="beskrivning">$19.99</p>
+      <p class="pris">$19.99</p>
+      <button class="addtocart">Add to Cart</button>
+    </div>
+    <div class="p1">
+      <img src="/img/image_6483441(3).JPG" alt="Girl in a jacket">
+      <h2>blomsaj</h2>
+      <h3> 100.kr </h3>
+      <p class="beskrivning">$19.99</p>
+      <p class="pris">$19.99</p>
+      <button class="addtocart">Add to Cart</button>
+    </div>
+    <div class="p1">
+      <img src="/img/image_6483441(6).JPG" alt="Girl in a jacket">
+      <h2>blomsaj</h2>
+      <h3> 100.kr </h3>
+      <p class="beskrivning">$19.99</p>
+      <p class="pris">$19.99</p>
+      <button class="addtocart">Add to Cart</button>
+    </div>
+    <div class="p1">
+      <img src="/img/image_6483441(5).JPG" alt="Girl in a jacket">
+      <h2>blomsaj</h2>
+      <h3> 100.kr </h3>
+      <p class="beskrivning">$19.99</p>
+      <p class="pris">$19.99</p>
+      <button class="addtocart">Add to Cart</button>
+    </div>
+    <div class="p1">
+      <img src="/img/image_6483441(6).JPG" alt="Girl in a jacket">
+      <h2>blomsaj</h2>
+      <h3> 100.kr </h3>
+      <p class="beskrivning">$19.99</p>
+      <p class="pris">$19.99</p>
+      <button class="addtocart">Add to Cart</button>
+    </div>
+    <div class="p1">
+      <img src="/img/image_6483441(7).JPG" alt="Girl in a jacket">
+      <h2>blomsaj</h2>
+      <h3> 100.kr </h3>
+      <p class="beskrivning">$19.99</p>
+      <p class="pris">$19.99</p>
+      <button class="addtocart">Add to Cart</button>
+    </div>
+    <div class="p1">
+      <img src="/img/image_6483441(1).JPG" alt="Girl in a jacket">
+      <h2>blomsaj</h2>
+      <h3> 100.kr </h3>
+      <p class="beskrivning">$19.99</p>
+      <p class="pris">$19.99</p>
+      <button class="addtocart">Add to Cart</button>
+    </div>
+    <div class="p1">
+      <img src="/img/image_6483441(2).JPG" alt="Girl in a jacket">
+      <h2>blomsaj</h2>
+      <h3> 100.kr </h3>
+      <p class="beskrivning">$19.99</p>
+      <p class="pris">$19.99</p>
+      <button class="addtocart">Add to Cart</button>
+    </div>
+
+
+
+
+
+
+  </section>
+
+
+  {% for row in rows %}
+  <section>
+    {{ row.id }} {{ row.authorId }} {{ row.author }}
+    <h1>{{ row.title }}</h1>
+    <p>{{ row.content }}</p>
+    <p>Created {{ row.createdAt }}</p>
+    <p>{{ row.name }}</p>
+  </section>
+  {% endfor %}
+
 </main>
 {% endblock %}
