@@ -182,11 +182,8 @@ router.get('/shop', async function (req, res, next) {
     const [rows] = await promisePool.query("SELECT * FROM edzarshop");
     res.render('shop.njk', { title: 'PostIt', name: req.session.username, rows: rows });
   });
-  router.get('/shop', async function (req, res, next) {
-    res.render('shop.njk', {
-        title: 'Nytt inlägg',
-    });
-});
+  
+/*
 router.post('/add-to-cart', async function (req, res, next) {
     const { Id } = req.body;
   
@@ -211,57 +208,32 @@ router.post('/add-to-cart', async function (req, res, next) {
       return res.status(401).send('Access denied');
     }
   });
+*/
+
+
+
+
   
 
-////////////////FORUM
-router.get('/new', async function (req, res, next) {
-    res.render('new.njk', {
-        title: 'Nytt inlägg',
-    });
-});
-router.post('/new', async function (req, res, next) {
-    const { author, title, content } = req.body;
-    const error = [];
-
-    if (!title) {
-        error.push('Title is required');
+  router.post('/add-to-cart', async (req, res) => {
+    const { user_Id, product_Id } = req.body;
+  
+    try {
+      // Save the cart item in the edzarcart table
+      const insertQuery = 'INSERT INTO edzarcart (edzaruser_id, edzarshop_id) VALUES (?, ?)';
+      await promisePool.query(insertQuery, [user_Id, product_Id]);
+  
+      // Retrieve cart items from the database based on the user ID
+      const cartQuery = 'SELECT * FROM edzarcart JOIN edzarshop ON edzarcart.edzarshop_id = edzarshop.id WHERE edzarcart.edzaruser_id = ?';
+      const [cartResults] = await promisePool.query(cartQuery, [user_Id]);
+  
+      res.render('cart.njk', { cartItems: cartResults });
+    } catch (error) {
+      console.error('Error adding product to cart: ', error);
+      res.status(500).send('Error adding product to cart');
     }
-    if (!content) {
-        error.push('Body is required');
-    }
-    if (title && title.length <= 3) {
-        error.push('Title must be at least 3 characters');
-    }
-    if (content && content.length <= 10) {
-        error.push('Body must be at least 10 characters');
-    }
-    if (res.length === 0) {
-        const sanitize = (str) => {
-            let temp = str.trim();
-            temp = validator.stripLow(temp);
-            temp = validator.escape(temp);
-            return temp;
-        };
-    }
-    if (!title) {
-        sanitizedTitle = sanitize(title)
-    }
-    if (!content) {
-        sanitizedcontent = sanitize(content)
-    }
-    if (error.length === 0) {
-        try {
-            const [rows] = await promisePool.query("INSERT INTO nd20forum (author, title, content) VALUES ( ?, ?, ?)", [author, title, content]);
-            res.redirect('/forum');
-        } catch (error) {
-            console.error(error);
-        }
-    } else {
-        res.send(error);
-    }
-
-
-});
+  });
+  
 
 
   

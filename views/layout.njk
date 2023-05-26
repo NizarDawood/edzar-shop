@@ -15,22 +15,26 @@
 
     {% block navbar %}
     <nav class="navbar">
-        <ul class="nav-list">            
+        <ul class="nav-list">
             <li class="nav-item"><a href="/">EDZAR</a></li>
-
             <li class="nav-item"><a href="/shop">Shop</a></li>
-            <li class="nav-item"><a href="/new">new</a></li>
-
-
+            <li class="nav-item"><a href="/new">New</a></li>
             <li class="nav-item profile">
                 <a href="/profile">Profile</a>
                 <ul class="profile-dropdown">
-                    <li><a href="/login">Login</a></li>
-                    <li><a href="/register">Register</a></li>
+                    {% if req.session.login === 1 and req.session.userId %}
+                        <li><a href="/logout">Logout</a></li>
+                        <li><a href="/profile">{{ req.session.userId }}</a></li>
+                    {% else %}
+                        <li><a href="/login">Login</a></li>
+                        <li><a href="/register">Register</a></li>
+                    {% endif %}
                 </ul>
             </li>
         </ul>
     </nav>
+    
+    
 
   {% endblock %}
     {% block content %}
