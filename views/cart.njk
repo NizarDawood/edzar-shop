@@ -1,20 +1,22 @@
 {% extends "layout.njk" %}
 {% block content %}
-<main class="shopmain">
-
-
-
-
-  <section>
-    {% for row in rows %}
-      <h1>{{ row.name }}</h1>
+<main class="">
+  <section class="produkt">
+    <div>
+      <p>edzaruser_Id: {{ edzaruser_Id }}</p>
+      <p>product_Id: {{ product_Id }}</p>
+    </div>
+    {% for row in cartItems %}
+    <div class="p1">
+      <img src="{{ row.link }}">
+      <h1>{{ row.productname }}</h1>
       <p>{{ row.price }}</p>
-     
+      <form action="/add-to-cart" method="POST">
+        <input type="hidden" name="productId" value="{{ row.edzarshop_id }}">
+        <button type="submit">Lägg till i varukorgen</button>
+      </form>
+    </div>
     {% endfor %}
   </section>
-
-
-
-
 </main>
 {% endblock %}

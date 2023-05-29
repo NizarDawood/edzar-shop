@@ -10,13 +10,16 @@
       <img src="{{ row.link }}">
       <h1>{{ row.productname }}</h1>
       <p>{{ row.price }}</p>
-      <form action="/add-to-cart" method="POST">
-        <input type="hidden" name="productId" value="{{ row.edzarshop_id }}">
-        <button type="submit">Lägg till i varukorgen</button>
-      </form>
+        <form action="/add-to-cart" method="POST">
+          <input type="hidden" name="user_Id" value="{{ name }}">
+
+          <input type="hidden" name="product_Id" value="{{ row.id }}">
+
+          <button type="submit">Lägg till i varukorgen</button>
+        </form>
     </div>
     {% endfor %}
   </section>
 </main>
 {% endblock %}
-
+		

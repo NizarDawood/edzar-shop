@@ -170,19 +170,19 @@ router.post('/delete', async function (req, res, next) {
 ////////////// hämta produkter
 
 
-  
-  router.get('/profile', async function (req, res, next) {
+
+router.get('/profile', async function (req, res, next) {
     const [rows] = await promisePool.query("SELECT * FROM edzaruser");
     res.render('profile.njk', { title: 'postIt', name: req.session.username, rows: rows });
-  });
+});
 
 /// skicka data från tabellen edzaruser name och edzarshop id 1 column 
 
 router.get('/shop', async function (req, res, next) {
     const [rows] = await promisePool.query("SELECT * FROM edzarshop");
     res.render('shop.njk', { title: 'PostIt', name: req.session.username, rows: rows });
-  });
-  
+});
+
 /*
 router.post('/add-to-cart', async function (req, res, next) {
     const { Id } = req.body;
@@ -213,31 +213,38 @@ router.post('/add-to-cart', async function (req, res, next) {
 
 
 
-  
 
-  router.post('/add-to-cart', async (req, res) => {
+
+router.post('/add-to-cart', async (req, res) => {
     const { user_Id, product_Id } = req.body;
-  
-    try {
-      // Save the cart item in the edzarcart table
-      const insertQuery = 'INSERT INTO edzarcart (edzaruser_id, edzarshop_id) VALUES (?, ?)';
-      await promisePool.query(insertQuery, [user_Id, product_Id]);
-  
-      // Retrieve cart items from the database based on the user ID
-      const cartQuery = 'SELECT * FROM edzarcart JOIN edzarshop ON edzarcart.edzarshop_id = edzarshop.id WHERE edzarcart.edzaruser_id = ?';
-      const [cartResults] = await promisePool.query(cartQuery, [user_Id]);
-  
-      res.render('cart.njk', { cartItems: cartResults });
-    } catch (error) {
-      console.error('Error adding product to cart: ', error);
-      res.status(500).send('Error adding product to cart');
+    
+    if (req.session.login === 1 && req.session.username) {
+      const userId = req.session.username;
+    
+      try {
+        const insertQuery = 'INSERT INTO edzarcart (edzaruser_id, edzarshop_id) VALUES (?, ?)';
+        await promisePool.query(insertQuery, [user_Id, product_Id]);
+    
+        const cartQuery = 'SELECT * FROM edzarcart JOIN edzarshop ON edzarcart.edzarshop_id = edzarshop.id WHERE edzarcart.edzaruser_id = ?';
+        const [cartResults] = await promisePool.query(cartQuery, [user_Id]);
+    
+        res.render('cart.njk', { cartItems: cartResults });
+      } catch (error) {
+        console.error(error);
+        res.status(500).send('An error occurred');
+      }
+    } else {
+      return res.status(401).send('Access denied');
     }
   });
   
+  
 
 
-  
-  
+
+
+
+
 
 
 
