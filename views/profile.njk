@@ -1,17 +1,11 @@
 {% extends "layout.njk" %}
 {% block content %}
-<main class="container mt-3">
-  <p>Username: {{ name }}</p>
-  <p>walletvaleu: {{ wallet }}</p>
-
-  <nav>
-    <div>  <p>wellcom to : {{ name }}</p>
+<main class="profil">
+    <div>  <p>wellcom {{ name }}</p>
     </div>
-    <div>MY FAVORIT</div>
-    <div>MY ODERS</div>
-    <div>MY WALLET</div>
+    
+    <div> WALLET value : {{ wallet }} </div>
 
-  </nav>
 
 </main>
 {% endblock %}
