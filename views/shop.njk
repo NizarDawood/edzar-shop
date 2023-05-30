@@ -3,13 +3,14 @@
 
 {% extends "layout.njk" %}
 {% block content %}
-<main class="">
+<main class="shopmain">
   <section class="produkt">
     {% for row in rows %}
     <div class="p1">
       <img src="{{ row.link }}">
       <h1>{{ row.productname }}</h1>
       <p>{{ row.price }}</p>
+      
         <form action="/add-to-cart" method="POST">
           <input type="hidden" name="user_Id" value="{{ name }}">
 

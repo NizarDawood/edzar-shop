@@ -2,38 +2,73 @@
 {% block content %}
 <main>
 
+    {% block navbar %}
+    {% endblock %}
     <section class="intro">
+        <div class="intronav">
+            <nav class="navbar">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="/">EDZAR</a></li>
+                    <li class="nav-item"><a href="/shop">Shop</a></li>
+                    <li class="nav-item"><a href="/new.njk">chat</a></li>
+                    <li form action="/add-to-cart" method="POST">
+                        <a href="/cart.njk">Cart</a>
+                    </li>
 
-        <div class="intro1">
+                    <button type="submit">Lägg till i varukorgen</button>
+                    </form>
+                    <li class="nav-item profile">
+                        <a href="/profile">Profile</a>
+                        <ul class="profile-dropdown">
+                            {% if req.session.login === 1 and req.session.userId %}
+                            <li><a href="/logout">Logout</a></li>
+                            <li><a href="/profile">{{ req.session.userId }}</a></li>
+                            {% else %}
+                            <li><a href="/login">Login</a></li>
+                            <li><a href="/register">Register</a></li>
+                            {% endif %}
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
 
-            <h1>Välkommen till...</h1>
-            <p>Text om din webbplats.</p>
+            <div class="intro1">
+
+                <h1>Välkommen till</h1>
+                <h2>Edzar Laserengraving UF</h2>
+            </div>
         </div>
-
         <div class="intro2">
 
 
             <div class="intro3">
                 <img src="img/samantha-fields-Nk2dWsqaX2k-unsplash.jpg" alt="d">
-                radius 8px
 
             </div>
 
             <div class="intro4">
+                <h1>Affärsidé</h1>
+                <p>Vi är ett laser gravering företag som kommer
+                    att använda oss ut av laser för att gravera på
+                    olika material med figurer , bilder och personliga meddelanden. </p>
 
-                beskrivande text
+
+
             </div>
         </div>
 
         <div class="intro5">
-            <img src="img/image_6483441(4).JPG" alt="">
-            <img src="img/image_6483441(5).JPG" alt="">
-            <img src="img/image_6483441(6).JPG" alt="">
+            <div><a href="/shop"><img src="img/image_6483441(9).JPG" alt=""> </a>
+            </div>
+            <div><a href="/shop"> <img src="img/image_6483441(5).JPG" alt=""></a>
+            </div>
+            <div><a href="/shop"> <img src="img/image_6483441(6).JPG" alt=""></a>
+            </div>
 
         </div>
-        <div class="intro6">
-            shop länk
-        </div>
+
+
+
 
 
 

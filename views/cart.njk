@@ -3,9 +3,9 @@
 <main class="">
   <section class="produkt">
     <div>
-      <p>edzaruser_Id: {{ edzaruser_Id }}</p>
-      <p>product_Id: {{ product_Id }}</p>
+      
     </div>
+    {% set totalPrice = 0 %}
     {% for row in cartItems %}
     <div class="p1">
       <img src="{{ row.link }}">
@@ -16,7 +16,10 @@
         <button type="submit">Lägg till i varukorgen</button>
       </form>
     </div>
+    {% set totalPrice = totalPrice + row.price %}
     {% endfor %}
+    <p>Total summa: {{ totalPrice }}</p>
+    
   </section>
 </main>
 {% endblock %}

@@ -28,7 +28,15 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static('public', { type: 'text/css' }));
 
-  
+app.set('trust proxy', 1);
+app.use(
+    session({
+        secret: process.env.SESSION_SECRET,
+        resave: false,
+        saveUninitialized: true,
+        cookie: { sameSite: false, secure: false, httpOnly: false },
+    }),
+);
 app.use('/', indexRouter);
 
 module.exports = app;

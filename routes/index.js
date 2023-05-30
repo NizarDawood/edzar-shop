@@ -20,7 +20,11 @@ router.get('/', async function (req, res, next) {
         title: 'PostIt'
     });
 });
-
+router.get('/cart.njk', (req, res) => {
+  
+    res.render('cart.njk');
+  });
+ 
 router.get('/login', async function (req, res, next) {
     res.render('login.njk', { title: 'Log' });
 });
@@ -182,7 +186,10 @@ router.get('/shop', async function (req, res, next) {
     const [rows] = await promisePool.query("SELECT * FROM edzarshop");
     res.render('shop.njk', { title: 'PostIt', name: req.session.username, rows: rows });
 });
-
+router.get('/cart', async function (req, res, next) {
+    const [rows] = await promisePool.query("SELECT * FROM edzarcart");
+    res.render('cart.njk', { title: 'PostIt', name: req.session.username, rows: rows });
+});
 /*
 router.post('/add-to-cart', async function (req, res, next) {
     const { Id } = req.body;
